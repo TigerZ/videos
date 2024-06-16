@@ -1,0 +1,32 @@
+@startuml
+start
+
+:输入系统消息;
+
+:输入新用户消息;
+
+:点击发送;
+
+:合并消息;
+
+->[
+    { "role": "system", "content": "systemMessage" },
+    ...messageHistory,
+    { "role": "user", "content": "newUserMessage" }
+  ];
+
+:请求后端代理;
+
+:收到后端代理响应;
+
+->[
+    ...messageHistory,
+    { "role": "assistant", "content": "大模型生成内容" }
+  ];
+
+:更新消息历史;
+
+:重绘界面;
+
+stop
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "前端系统" {
+  [Web 页面] 
+  [移动 APP]
+}
+
+package "服务端代理服务" {
+  [代理服务]
+  [模型管理 (baseURL, API_KEY, model)]
+  [函数调用处理]
+}
+
+package "外部服务" {
+  [大模型 API]
+}
+
+' 定义前端与服务端代理服务之间的关系
+[Web 页面] --> [代理服务] : 请求/响应
+[移动 APP] --> [代理服务] : 请求/响应
+
+' 定义服务端代理服务内部组件的关系
+[代理服务] --> [模型管理 (baseURL, API_KEY, model)] : 选择/管理模型
+[代理服务] --> [函数调用处理] : 函数调用处理
+
+' 定义服务端代理服务与大模型 API 之间的关系
+[代理服务] --> [大模型 API] : 调用大模型 API
+
+@enduml

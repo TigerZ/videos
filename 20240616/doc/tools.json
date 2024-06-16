@@ -1,0 +1,21 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "TEXT_TO_SPEECH",
+            "description": "这是文本转换语音工具。例如：{\"text\": \"你好，有什么需要帮助的吗？\"}",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "type": "string",
+                        "description": "要转换的文本"
+                    }
+                },
+                "required": [
+                    "text"
+                ]
+            }
+        }
+    }
+]
